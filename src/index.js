@@ -7,9 +7,9 @@ import ToDoList from './components/to-do-list';
 
 const App = () => {
   const tasks = [
-    {text: 'Learn React', isImportant: true},
-    {text: 'Make Awesome App', isImportant: true},
-    {text: 'Have a lunch', isImportant: false}
+    {text: 'Learn React', isImportant: true, id: 1},
+    {text: 'Make Awesome App', isImportant: true, id: 2},
+    {text: 'Have a lunch', isImportant: false, id: 3}
   ];
 
   return (
