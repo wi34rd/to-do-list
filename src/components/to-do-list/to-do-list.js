@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ToDoListItem from './to-do-list-item';
+import ToDoListItem from '../to-do-list-item/';
 
 
 const ToDoList = ({tasks}) => {
@@ -13,9 +13,11 @@ const ToDoList = ({tasks}) => {
   })
 
   return (
-    <ul className="list-group">
-      {toDoListItems}
-    </ul>
+    <div class="col-12">
+      <ul className="list-group">
+        {toDoListItems}
+      </ul>
+    </div>
   );
 };
 
