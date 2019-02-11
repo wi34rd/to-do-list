@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import AppHeading from './components/app-heading';
-import SearchPanel from './components/search-panel';
+import SearchInput from './components/search-input';
+import TaskFilter from './components/task-filter';
 import ToDoList from './components/to-do-list';
 
 
@@ -14,11 +16,16 @@ const App = () => {
 
   return (
     <div>
-      <AppHeading />
-      <SearchPanel />
+      <AppHeading toDo="3" done="1" />
+
+      <div className="my-3 d-flex">
+        <SearchInput />
+        <TaskFilter />
+      </div>
+
       <ToDoList tasks={tasks} />
     </div>
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('to-do-list-app'));

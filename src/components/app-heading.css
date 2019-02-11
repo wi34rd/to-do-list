@@ -1,0 +1,10 @@
+.app-heading h1 {
+    margin: 0;
+}
+
+.app-heading span {
+    margin: auto 0 0 auto;
+
+    font-size: 1.2em;
+    color: #808080;
+}
