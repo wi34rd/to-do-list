@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-const ToDoListItem = () => {
-  return <span>Learn React</span>;
+const ToDoListItem = ({text, important = false}) => {
+  return React.createElement(important ? 'strong': 'span', null, text);
 };
 
 export default ToDoListItem;
