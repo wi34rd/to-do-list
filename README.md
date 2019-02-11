@@ -5,4 +5,5 @@
 Позваляет добавлять задачи, удалять и помечать их важными или выполненными.
 
 Данное приложение сделано на основе
-[уроков Юрия Буры на Udemy](https://www.udemy.com/pro-react-redux/) ([репозиторий курса](https://github.com/Juriy/pro-react-redux)).
+[курса Юрия Буры на Udemy](https://www.udemy.com/pro-react-redux/)
+([репозиторий курса](https://github.com/Juriy/pro-react-redux)).
