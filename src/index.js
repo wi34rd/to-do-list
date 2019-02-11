@@ -6,11 +6,17 @@ import ToDoList from './components/to-do-list';
 
 
 const App = () => {
+  const tasks = [
+    {text: 'Learn React', isImportant: true},
+    {text: 'Make Awesome App', isImportant: true},
+    {text: 'Have a lunch', isImportant: false}
+  ];
+
   return (
     <div>
       <AppHeading />
       <SearchPanel />
-      <ToDoList />
+      <ToDoList tasks={tasks} />
     </div>
   );
 };

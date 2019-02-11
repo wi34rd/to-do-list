@@ -2,16 +2,18 @@ import React from 'react';
 import ToDoListItem from './to-do-list-item';
 
 
-const ToDoList = () => {
+const ToDoList = ({tasks}) => {
+  const toDoListItems = tasks.map((task) => {
+    return (
+      <li>
+        <ToDoListItem text={task.text} important={task.isImportant} />
+      </li>
+    )
+  })
+
   return (
     <ul>
-      <li>
-        <ToDoListItem text="Learn React" />
-      </li>
-
-      <li>
-        <ToDoListItem text="Make Awesome App" important />
-      </li>
+      {toDoListItems}
     </ul>
   );
 };
