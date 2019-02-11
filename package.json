@@ -1,0 +1,32 @@
+{
+  "name": "to-do-list",
+  "version": "0.0.0",
+  "description": "Simple To-Do List React Application",
+  "homepage": "https://github.com/wi34rd/to-do-list",
+  "license": "UNLICENSED",
+  "private": true,
+  "author": {
+    "name": "wi34rd",
+    "email": "wi34rd@gmail.com"
+  },
+  "dependencies": {
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-scripts": "2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
