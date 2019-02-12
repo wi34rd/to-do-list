@@ -13,7 +13,7 @@ const ToDoList = ({tasks}) => {
   })
 
   return (
-    <div class="col-12">
+    <div className="col-12">
       <ul className="list-group">
         {toDoListItems}
       </ul>

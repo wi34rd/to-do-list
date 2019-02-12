@@ -22,7 +22,7 @@ const App = () => {
         <TaskFilter />
       </div>
 
-      <div class="row">
+      <div className="row">
         <ToDoList tasks={tasks} />
       </div>
     </div>
