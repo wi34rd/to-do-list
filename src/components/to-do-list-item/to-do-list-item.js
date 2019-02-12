@@ -36,7 +36,7 @@ export default class ToDoListItem extends React.Component {
           {text}
         </div>
 
-        <button type="button" className="btn btn-outline-danger btn-sm ml-auto">
+        <button type="button" className="btn btn-outline-danger btn-sm ml-auto" onClick={this.props.onDelete}>
           <span className="fa fa-trash-o"></span>
         </button>
 
