@@ -8,36 +8,63 @@ import ToDoAddForm from '../to-do-add-form/';
 
 
 export default class App extends React.Component {
+  toDoMaxId = 0;
+
   state = {
     toDos: [
-      {id: 1, text: 'Learn React', isImportant: true},
-      {id: 2, text: 'Make Awesome App', isImportant: true},
-      {id: 3, text: 'Have a lunch', isImportant: false}
+      this.createToDo('Learn React'),
+      this.createToDo('Make Awesome App'),
+      this.createToDo('Have a lunch')
     ]
   };
 
-  maxId = Math.max(...this.state.toDos.map((toDo) => toDo.id));
+  createToDo(text) {
+    return {
+      id: ++this.toDoMaxId,
+      text,
+      isDone: false,
+      isImportant: false
+    }
+  }
 
-  toDoDelete = (itemId) => {
-    this.setState((state) => {
-      return {
-        toDos: state.toDos.filter((elt) => elt.id !== itemId)
-      };
+  toDoAdd = (toDoText) => {
+    this.setState({
+      toDos: this.state.toDos.concat(this.createToDo('Drink Coffee'))
     });
   };
 
-  toDoAdd = (toDoText) => {
-    this.setState((state) => {
-      return {
-        toDos: state.toDos.concat({id: ++this.maxId, text: toDoText, isImportant: false})
-      };
+  toDoDelete = (itemId) => {
+    this.setState({
+      toDos: this.state.toDos.filter((elt) => elt.id !== itemId)
     });
+  };
+
+  toDoToggleProp(propName, itemId) {
+    return this.state.toDos.map((toDo) => {
+      if (toDo.id === itemId) {
+        toDo[propName] = !toDo[propName];
+      }
+
+      return toDo;
+    });
+  }
+
+  toDoToggleDone = (itemId) => {
+    this.setState({toDos: this.toDoToggleProp('isDone', itemId)});
+  };
+
+  toDoToggleImportant = (itemId) => {
+    this.setState({toDos: this.toDoToggleProp('isImportant', itemId)});
   };
 
   render() {
+    const {toDos} = this.state;
+    const doneCnt = toDos.filter((toDo) => toDo.isDone).length
+    const toDoCnt = toDos.length - doneCnt;
+
     return (
       <div className="container pt-4">
-        <AppHeader toDo="3" done="1" />
+        <AppHeader toDo={toDoCnt} done={doneCnt} />
 
         <div className="row my-3">
           <ToDoSearch />
@@ -45,7 +72,12 @@ export default class App extends React.Component {
         </div>
 
         <div className="row">
-          <ToDoList toDos={this.state.toDos} onToDoDelete={this.toDoDelete} />
+          <ToDoList
+            toDos={toDos}
+            onToDoDelete={this.toDoDelete}
+            onToDoToggleDone={this.toDoToggleDone}
+            onToDoToggleImportant={this.toDoToggleImportant}
+          />
         </div>
 
         <div className="row">
