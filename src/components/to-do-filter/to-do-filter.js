@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default class TaskFilter extends React.Component {
+export default class ToDoFilter extends React.Component {
   render() {
     return (
       <div className="col-12 col-md-3 btn-group">

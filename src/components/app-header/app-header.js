@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const AppHeading = ({toDo, done}) => {
+const AppHeader = ({toDo, done}) => {
   return (
     <h1 className="row">
       <span className="col-12 col-md-6">To-Do List</span>
@@ -10,4 +10,4 @@ const AppHeading = ({toDo, done}) => {
   );
 };
 
-export default AppHeading;
+export default AppHeader;

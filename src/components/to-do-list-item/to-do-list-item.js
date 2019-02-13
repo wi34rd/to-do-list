@@ -9,7 +9,7 @@ export default class ToDoListItem extends React.Component {
     isImportant: this.props.isImportant
   };
 
-  toDoListItemClick = () => {
+  toDoMakeDone = () => {
     this.setState((state) => {
       return {
         isDone: !state.isDone
@@ -17,7 +17,7 @@ export default class ToDoListItem extends React.Component {
     });
   };
 
-  toDoListItemMarkImportant = () => {
+  toDoMakeImportant = () => {
     this.setState((state) => {
       return {
         isImportant: !state.isImportant
@@ -32,15 +32,15 @@ export default class ToDoListItem extends React.Component {
 
     return (
       <div className="to-do-list-item d-flex">
-        <div onClick={this.toDoListItemClick}>
+        <div className="to-do-list-item__text" onClick={this.toDoMakeDone}>
           {text}
         </div>
 
-        <button type="button" className="btn btn-outline-danger btn-sm ml-auto" onClick={this.props.onDelete}>
+        <button type="button" className="btn btn-outline-danger btn-sm ml-auto" onClick={this.props.onToDoDelete}>
           <span className="fa fa-trash-o"></span>
         </button>
 
-        <button type="button" className="btn btn-outline-success btn-sm ml-1" onClick={this.toDoListItemMarkImportant}>
+        <button type="button" className="btn btn-outline-success btn-sm ml-1" onClick={this.toDoMakeImportant}>
           <span className="fa fa-exclamation"></span>
         </button>
       </div>

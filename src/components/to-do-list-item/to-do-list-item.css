@@ -6,11 +6,11 @@
     width: 35px;
 }
 
-.to-do-list-item div {
+.to-do-list-item__text {
     cursor: pointer;
     user-select: none;
 }
 
-.do-do-list-item del {
+.to-do-list-item__text strong {
     color: steelblue;
 }

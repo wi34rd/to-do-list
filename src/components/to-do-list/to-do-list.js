@@ -3,11 +3,11 @@ import React from 'react';
 import ToDoListItem from '../to-do-list-item/';
 
 
-const ToDoList = ({tasks, onItemDelete}) => {
-  const toDoListItems = tasks.map((task) => {
+const ToDoList = ({toDos, onToDoDelete}) => {
+  const toDoListItems = toDos.map((toDo) => {
     return (
-      <li className="list-group-item pl-5 pr-3 py-2" key={task.id}>
-        <ToDoListItem text={task.text} isImportant={task.isImportant} onDelete={() => onItemDelete(task.id)} />
+      <li className="list-group-item pl-5 pr-3 py-2" key={toDo.id}>
+        <ToDoListItem text={toDo.text} isImportant={toDo.isImportant} onToDoDelete={() => onToDoDelete(toDo.id)} />
       </li>
     )
   })
