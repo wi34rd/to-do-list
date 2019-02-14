@@ -11,12 +11,8 @@
 ## Используемый стек
 
 * React
-* JSX
-* JavaScript
 * Bootstrap
 * FontAwesome
-* CSS
-* HTML
 
 ## Примечание
 

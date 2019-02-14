@@ -29,7 +29,7 @@ export default class App extends React.Component {
 
   toDoAdd = (toDoText) => {
     this.setState({
-      toDos: this.state.toDos.concat(this.createToDo('Drink Coffee'))
+      toDos: this.state.toDos.concat(this.createToDo(toDoText))
     });
   };
 

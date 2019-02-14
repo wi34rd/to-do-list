@@ -1,12 +1,37 @@
 import React from 'react';
 
 
-const ToDoAddForm = (props) => {
-  return (
-    <div className="col-12 mt-3">
-      <button type="button" className="btn btn-primary" onClick={() => props.onToDoAdd('Drink Coffee')}>Add</button>
-    </div>
-  );
-};
+export default class ToDoAddForm extends React.Component {
+  state = {
+    toDoText: ''
+  }
 
-export default ToDoAddForm;
+  handleChange = (event) => {
+    this.setState({toDoText: event.target.value});
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.setState({toDoText: ''});
+    this.props.onToDoAdd(this.state.toDoText);
+  }
+
+  render() {
+    return (
+      <form className="col-12 mt-3 d-flex" onSubmit={this.handleSubmit}>
+        <input
+          type="text"
+          value={this.state.toDoText}
+          className="form-control"
+          placeholder="What needs to be done..."
+          onChange={this.handleChange}
+        />
+
+        <button
+          type="submit"
+          className="btn btn-primary ml-3"
+        >Add</button>
+      </form>
+    );
+  }
+};
