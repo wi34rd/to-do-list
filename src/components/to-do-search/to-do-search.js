@@ -4,7 +4,7 @@ import React from 'react';
 export default class ToDoSearch extends React.Component {
   render() {
     return (
-      <div className="col-12 col-md-9">
+      <div className="flex-grow-1">
         <input
           type="text"
           className="form-control"

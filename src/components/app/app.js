@@ -92,8 +92,10 @@ export default class App extends React.Component {
         <AppHeader toDo={toDoCnt} done={doneCnt} />
 
         <div className="row my-3">
-          <ToDoSearch onChange={this.handleToDoSearchChange} />
-          <ToDoFilter filterType={this.state.filterType} onFilterChange={this.handleToDoFilterChange} />
+          <div className="col-12 d-flex">
+            <ToDoSearch onChange={this.handleToDoSearchChange} />
+            <ToDoFilter filterType={this.state.filterType} onFilterChange={this.handleToDoFilterChange} />
+          </div>
         </div>
 
         <div className="row">

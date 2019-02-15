@@ -4,10 +4,12 @@ import React from 'react';
 export default class AppHeader extends React.Component {
   render() {
     return (
-      <h1 className="row">
-        <span className="col-12 col-md-6">To-Do List</span>
-        <small className="col-12 col-md-6 text-muted text-md-right">{this.props.toDo} more to do, {this.props.done} done</small>
-      </h1>
+      <div className="row">
+        <div className="col-12 d-flex">
+          <h1 className="flex-grow-1">To-Do List</h1>
+          <div className="text-muted mt-auto">{this.props.toDo} more to do, {this.props.done} done</div>
+        </div>
+      </div>
     );
   }
 };

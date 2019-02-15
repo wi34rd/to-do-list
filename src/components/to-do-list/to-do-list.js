@@ -7,7 +7,7 @@ export default class ToDoList extends React.Component {
   render() {
     const toDoListItems = this.props.toDos.map((toDo) => {
       return (
-        <li className="list-group-item pl-5 pr-3 py-2" key={toDo.id}>
+        <li className="list-group-item px-3 py-2" key={toDo.id}>
           <ToDoListItem
             text={toDo.text}
             isDone={toDo.isDone}

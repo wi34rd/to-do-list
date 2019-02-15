@@ -20,7 +20,7 @@ export default class ToDoFilter extends React.Component {
     });
 
     return (
-      <div className="col-12 col-md-3 btn-group" role="group" aria-label="To-Do List Filter">
+      <div className="btn-group ml-3" role="group" aria-label="To-Do List Filter">
         {buttonElements}
       </div>
     );
