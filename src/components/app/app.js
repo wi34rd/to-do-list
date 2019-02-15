@@ -8,15 +8,20 @@ import ToDoAddForm from '../to-do-add-form/';
 
 
 export default class App extends React.Component {
-  toDoMaxId = 0;
+  constructor(props) {
+    super(props);
 
-  state = {
-    toDos: [
-      this.createToDo('Learn React'),
-      this.createToDo('Make Awesome App'),
-      this.createToDo('Have a lunch')
-    ]
-  };
+    this.toDoMaxId = 0;
+    this.state = {
+      filterType: 'all',
+      searchText: '',
+      toDos: [
+        this.createToDo('Learn React'),
+        this.createToDo('Make Awesome App'),
+        this.createToDo('Have a lunch')
+      ]
+    };
+  }
 
   createToDo(text) {
     return {
@@ -27,6 +32,14 @@ export default class App extends React.Component {
     }
   }
 
+  handleToDoSearchChange = (searchText) => {
+    this.setState({searchText});
+  }
+
+  handleToDoFilterChange = (filterType) => {
+    this.setState({filterType});
+  }
+
   toDoAdd = (toDoText) => {
     this.setState({
       toDos: this.state.toDos.concat(this.createToDo(toDoText))
@@ -35,7 +48,7 @@ export default class App extends React.Component {
 
   toDoDelete = (itemId) => {
     this.setState({
-      toDos: this.state.toDos.filter((elt) => elt.id !== itemId)
+      toDos: this.state.toDos.filter((toDo) => toDo.id !== itemId)
     });
   };
 
@@ -58,17 +71,29 @@ export default class App extends React.Component {
   };
 
   render() {
-    const {toDos} = this.state;
-    const doneCnt = toDos.filter((toDo) => toDo.isDone).length
+    let toDos = this.state.toDos;
+    const doneCnt = toDos.filter((toDo) => toDo.isDone).length;
     const toDoCnt = toDos.length - doneCnt;
+    toDos = toDos.filter((toDo) => toDo.text.toLowerCase().includes(this.state.searchText));
+
+    switch (this.state.filterType) {
+      case 'active':
+        toDos = toDos.filter((toDo) => !toDo.isDone);
+        break;
+      case 'done':
+        toDos = toDos.filter((toDo) => toDo.isDone);
+        break;
+      default:
+        break;
+    }
 
     return (
       <div className="container pt-4">
         <AppHeader toDo={toDoCnt} done={doneCnt} />
 
         <div className="row my-3">
-          <ToDoSearch />
-          <ToDoFilter />
+          <ToDoSearch onChange={this.handleToDoSearchChange} />
+          <ToDoFilter filterType={this.state.filterType} onFilterChange={this.handleToDoFilterChange} />
         </div>
 
         <div className="row">
